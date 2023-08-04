@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 
 /* viewport의 정중앙에 모달 위치시키기 */
 const modalStyle = {
@@ -25,14 +26,17 @@ const overlayStyle = {
 const Modal = ({ open, onClose, children }) => {
   if (!open) return null;
 
-  return (
+  // ReactDOM.createPortal(child, container)를 사용 >
+  // 부모 컴포넌트의 DOM 계층 구조 바깥에 있는 DOM 노드로 자식을 렌더링
+  return ReactDOM.createPortal(
     <>
       <div style={overlayStyle} />
       <div style={modalStyle}>
         {children}
         <button onClick={onClose}>모달 닫기</button>
       </div>
-    </>
+    </>,
+    document.getElementById('portal')
   );
 };
 
