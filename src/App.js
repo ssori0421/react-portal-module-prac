@@ -20,7 +20,9 @@ function App() {
     <div>
       <div style={modalWrapperStyle}></div>
       <button onClick={() => setIsModalOpen(true)}>모달 열기</button>
-      <Modal open={isModalOpen} onClose={() => setIsModalOpen(false)} />
+      <Modal open={isModalOpen} onClose={() => setIsModalOpen(false)}>
+        이렇게 모달 내용을 children이라는 prop으로 전달 가능!!
+      </Modal>
       <div style={higherIndexWrapperstyle}>z-index 2</div>
     </div>
   );
