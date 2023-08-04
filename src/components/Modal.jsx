@@ -23,7 +23,7 @@ const overlayStyle = {
   zIndex: 1000,
 };
 
-const Modal = ({ open, onClose, children }) => {
+const Modal = ({ open, children }) => {
   if (!open) return null;
 
   // ReactDOM.createPortal(child, container)를 사용 >
@@ -33,7 +33,7 @@ const Modal = ({ open, onClose, children }) => {
       <div style={overlayStyle} />
       <div style={modalStyle}>
         {children}
-        <button onClick={onClose}>모달 닫기</button>
+        <button>모달 닫기</button>
       </div>
     </>,
     document.getElementById('portal')
